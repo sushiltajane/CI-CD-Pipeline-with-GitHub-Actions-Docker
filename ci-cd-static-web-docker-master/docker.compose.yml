@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: shreyashpatil4266/shreyash-static-web:latest
+    ports:
+      - "80:80"
+

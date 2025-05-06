@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shreyash-static-web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shreyash-static-web
+  template:
+    metadata:
+      labels:
+        app: shreyash-static-web
+    spec:
+      containers:
+        - name: shreyash-static-web
+          image: siriusblack4210/shreyash-static-web:latest
+          ports:
+            - containerPort: 80
+
