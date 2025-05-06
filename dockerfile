@@ -1,11 +1,15 @@
-FROM python:3.9
+# Use the official NGINX image as base
+FROM nginx:alpine
 
-WORKDIR /app
+# Remove the default NGINX web files
+RUN rm -rf /usr/share/nginx/html/*
 
-COPY . /app
+# Copy your static site to NGINX html directory
+COPY . /usr/share/nginx/html
 
-RUN pip install -r requirement.txt
+# Expose port 80
+EXPOSE 80
 
-EXPOSE 5000
+# Start NGINX in foreground
+CMD ["nginx", "-g", "daemon off;"]
 
-CMD ["python", "app.py"]
